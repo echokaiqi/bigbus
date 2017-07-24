@@ -1,0 +1,99 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>班车类别</h2>
+	</div>
+	<div class="cf">
+		<div class="fl">
+            <a class="btn" href="{:U('add')}">新 增</a>
+        </div>
+
+        <!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="nickname" class="search-input" value="{:I('nickname')}" placeholder="请输入用户昵称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">ID</th>
+		<th class="">班车类别</th>
+		<th class="">座位数</th>
+		<th class="">录入人</th>
+		<th class="">录入时间</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="data">
+		<volist name="data" id="vo">
+		<tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
+			<td>{$vo.id} </td>
+			<td><a href="{:U('Bus/detail?pid='.$vo['id'])}">{$vo.title}</a></td>
+			<td>{$vo.number}</td>
+			<td>{$vo.nickname}</td>
+			<td><span>{$vo.time}</span></td>
+			<if condition="$vo.status eq 0 ">
+				<td style="color:green;">允许运行</td>
+			<elseif condition="$vo.status eq 1 " />
+				<td style="color:darkred;">禁止运行</td>
+			<else />
+				<!--end ..-->
+			</if>
+
+			<td>
+				<a href="{:U('Bus/get_oper?method=forbidrank&id='.$vo['id'])}" class="confirm ajax-get">开启</a>
+				<a href="{:U('Bus/get_oper?method=resumerank&id='.$vo['id'])}" class="confirm ajax-get">关闭</a>
+				<a href="{:U('Bus/get_oper?method=deletsrank&id='.$vo['id'])}" class="confirm ajax-get"  >删除</a>
+            </td>
+		</tr>
+		</volist>
+		<else/>
+		<td colspan="9" class="text-center"> Oh! 暂时还没有线路! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+    <div class="pages">
+        {$page}
+    </div>
+</block>
+
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('Bus/index')}');
+	</script>
+</block>

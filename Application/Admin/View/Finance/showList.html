@@ -1,0 +1,121 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>账单流动</h2>
+	</div>
+
+
+	<div id="chartdiv1" style="width: 1100px; height: 400px;"></div>
+
+	<span class="hidden_a" style="display: none;">
+			{$data}
+	</span>
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+
+	var chart1;
+	var chart2;
+
+	makeCharts("light", "#FFFFFF","");
+
+	function makeCharts(theme, bgColor, bgImage) {
+		$(function () {
+			var dataProvider;
+			$(document).ready(function () {
+
+				var data = $(".hidden_a").html();
+				var jsonobj = JSON.parse(data);
+				dataProvider =jsonobj;
+
+			if (chart1) {
+				chart1.clear();
+			}
+			if (chart2) {
+				chart2.clear();
+			}
+
+			if (document.body) {
+				document.body.style.backgroundColor = bgColor;
+				document.body.style.backgroundImage = "url(" + bgImage + ")";
+			}
+
+			chart1 = AmCharts.makeChart("chartdiv1", {
+				type: "serial",
+				theme: theme,
+				dataProvider: dataProvider,
+				categoryField: "year",
+				startDuration: 1,
+
+				categoryAxis: {
+					gridPosition: "start"
+				},
+				valueAxes: [{
+					title: "Million USD"
+				}],
+				graphs: [{
+					type: "column",
+					title: "Income",
+					valueField: "income",
+					lineAlpha: 0,
+					fillAlphas: 0.8,
+					balloonText: "[[title]] in [[category]]:<b>[[value]]</b>"
+				}, {
+					type: "line",
+					title: "Expenses",
+					valueField: "expenses",
+					lineThickness: 2,
+					fillAlphas: 0,
+					bullet: "round",
+					balloonText: "[[title]] in [[category]]:<b>[[value]]</b>"
+				}],
+				legend: {
+					useGraphSettings: true
+				}
+
+			});
+
+			chart2 = AmCharts.makeChart("chartdiv2", {
+				type: "pie",
+				theme: theme,
+				dataProvider: [{
+					"country": "Czech Republic",
+					"litres": 156.9
+				}, {
+					"country": "Ireland",
+					"litres": 131.1
+				}, {
+					"country": "Germany",
+					"litres": 115.8
+				}, {
+					"country": "Australia",
+					"litres": 109.9
+				}, {
+					"country": "Austria",
+					"litres": 108.3
+				}, {
+					"country": "UK",
+					"litres": 65
+				}, {
+					"country": "Belgium",
+					"litres": 50
+				}],
+				titleField: "country",
+				valueField: "litres",
+				balloonText: "[[title]]<br><b>[[value]]</b> ([[percents]]%)",
+				legend: {
+					align: "center",
+					markerType: "circle"
+				}
+			});
+
+		});
+	});
+	}
+
+    highlight_subnav('{:U('Finance/showList')}');
+	</script>
+</block>

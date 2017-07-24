@@ -1,0 +1,39 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>新增班车类型</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-Route-add">
+        <div class="form-item">
+            <label class="item-label">上车码</label>
+            <div class="controls">
+
+            </div>
+        </div>
+        <br />
+        <div class="form-item">
+            <label class="item-label">下车码</label>
+            <div class="controls">
+
+            </div>
+        </div>
+        <br />
+        <div class="form-item">
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Bus/add')}');
+
+        $(function(){
+            $(".Rotue-subbtn").click(function(){
+
+            })
+        })
+    </script>
+</block>

@@ -1,0 +1,123 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>班车调度</h2>
+    </div>
+    <notempty name="data">
+    <form action="{:U()}" method="post" class="form-Route-add">
+        <div class="form-item">
+            <label class="item-label"></label>
+            <div class="controls">
+                班车名称 : {$data.name}
+                <br />
+                班车类型 : {$data.title}
+                <br />
+                乘车人数 : {$data.number}
+            </div>
+
+        </div>
+
+        <div class="form-item" id="place" style="display:none;">
+            <br />
+            <label class="item-label">公司调度<span class="check-tips">（请选择调度的公司）</span></label>
+            <div class="controls">
+                <select name="place" id="pvce">
+                    <volist name="places" id="v">
+                        <option value="{$v.id}" >{$v.title}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <br />
+        <empty name="route">
+            <td colspan="9" class="text-center"> 该公司所在位置未添加线路! </td>
+            <else />
+            <div class="form-item">
+                <label class="item-label" id="route-tit">线路类型<span class="check-tips">（请核实你的线路）</span></label>
+                <div class="controls">
+                    <select name="rid" id="routle">
+                        <volist name="route" id="ro">
+                            <if condition=" $ro.id eq $data.rid">
+
+                                <option value="{$ro.id}" selected="selected" class="rou">{$ro.title}</option>
+
+                                <else />
+
+                                <option value="{$ro.id}" class="rou" >{$ro.title}</option>
+
+                            </if>
+                        </volist>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <span id="ddd111">
+
+            </span>
+        </empty>
+
+        <input type="hidden" name="id" value="{$data.id}" />
+        <div class="form-item">
+            <button class="btn submit-btn Rotue-subbtn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+        <br />
+        <input type="button" class="button_place" value="点击核实你的公司">
+        <span id="span111">
+
+        </span>
+
+
+    </form>
+        <else/>
+        <td colspan="9" class="text-center"> 请选择正确的进入方式,如需要调度请到线路列表或班车列表进行指定! </td>
+    </notempty>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Bus/upd')}');
+
+        $(function(){
+            $(".Rotue-subbtn").click(function(){
+
+            });
+            $(".button_place").click(function(){
+               $("#place").slideDown();
+                $(this).val("请根据要求进行调度!");
+                $(this).css('color','red');
+            });
+            $("#pvce").change(function(){
+                var id = $(this).children('option:selected').val();
+                $("#routle").children().remove();
+                $.ajax({
+                    type:'post',
+                    url:"{:U('Bus/changeRoute')}",
+                    data:{id:id},
+                    dataType:'json',
+                    success:function(data){
+                        if(data != null){
+                            $(data).each(function(){
+                                if(this.id != ''){
+                                   $("#routle").append("<option value='"+this.id+"'>"+this.title+"</option>");
+                                }
+                            })
+                        }else{
+                            $("#routle").remove();
+                            $("#route-tit").html('该城市未开通线路,请前去添加线路后在调度!');
+                            $("#route-tit").css('color','red');
+                        }
+                    }
+                })
+            })
+        });
+
+    </script>
+    <!--<script type="text/javascript">
+        function place(id){
+            var obj = document.getElementById('pace'+id);
+        }
+    </script>-->
+</block>

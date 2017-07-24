@@ -1,0 +1,47 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>新增班车类型</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-Route-add">
+        <div class="form-item">
+            <label class="item-label">班车类型名称<span class="check-tips">（类型名称 5位以内）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="title" value="{$data.title}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">乘坐人数<span class="check-tips">（乘坐人数不得超过100人）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="number" value="{$data.number}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">显示<span class="check-tips">（是否显示）</span></label>
+            <div class="controls">
+                <input type="radio" name="hide" value="0" checked="checked" /> 显示
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="hide" value="1" /> 隐藏
+            </div>
+        </div>
+        <br />
+        <div class="form-item">
+            <button class="btn submit-btn Rotue-subbtn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        //导航高亮
+        highlight_subnav('{:U('Bus/add')}');
+
+        $(function(){
+            $(".Rotue-subbtn").click(function(){
+
+            })
+        })
+    </script>
+</block>

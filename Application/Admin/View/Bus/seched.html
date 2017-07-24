@@ -1,0 +1,59 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>班车列表</h2>
+
+	</div>
+    <!--<div class="tools">
+        <a class="btn" href="{:U('Attribute/add?model_id='.$model_id)}">新 增</a>
+    </div>-->
+
+	<!-- 数据列表 -->
+	<div class="data-table">
+        <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">编号</th>
+		<th class="">名称</th>
+		<th class="">座位数</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+
+
+
+	</tbody>
+    </table>
+        </div>
+    </div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <script type="text/javascript">
+  	//导航高亮
+    highlight_subnav('{:U('Model/index')}');
+    $(function(){
+    	$("#search").click(function(){
+    		var url = $(this).attr('url');
+    		var status = $('select[name=status]').val();
+    		var search = $('input[name=search]').val();
+    		if(status != ''){
+    			url += '/status/' + status;
+    		}
+    		if(search != ''){
+    			url += '/search/' + search;
+    		}
+    		window.location.href = url;
+    	});
+})
+</script>
+</block>

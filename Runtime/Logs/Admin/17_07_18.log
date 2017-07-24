@@ -1,0 +1,278 @@
+[ 2017-07-18T16:13:10+08:00 ] ::1 /bus/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-07-18T16:13:10+08:00 ] ::1 /bus/admin.php?s=/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.002000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-07-18T16:13:10+08:00 ] ::1 /bus/admin.php?s=/Public/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.002000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-07-18T16:13:16+08:00 ] ::1 /bus/admin.php?s=/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: lite D:\phpStudy\WWW\bus\ThinkPHP\Library\Think\Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `bus_member` [ RunTime:0.0360s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status`,`place` FROM `bus_member` WHERE `uid` = 8 LIMIT 1   [ RunTime:0.0120s ]
+SQL: SHOW COLUMNS FROM `bus_action` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `bus_action` WHERE `name` = 'user_login' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_action_log` [ RunTime:0.0100s ]
+SQL: INSERT INTO `bus_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES ('1','8','0','member','8','1500365596','dage在2017-07-18 16:13登录了后台') [ RunTime:0.0110s ]
+SQL: SELECT * FROM `bus_action` WHERE `name` = 'user_login' LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined offset: 1 D:\phpStudy\WWW\bus\Application\Common\Common\function.php 第 682 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given D:\phpStudy\WWW\bus\Application\Common\Common\function.php 第 682 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `bus_action_log` WHERE `action_id` = 1 AND `user_id` = 8 AND `create_time` > 1500279196 LIMIT 1   [ RunTime:0.0200s ]
+SQL: SHOW COLUMNS FROM `bus_member` [ RunTime:0.0030s ]
+SQL: UPDATE `bus_member` SET `score`=score+10 WHERE ( uid=8 AND status>-1 ) [ RunTime:0.0010s ]
+SQL: UPDATE `bus_member` SET `login`=`login`+1,`last_login_time`='1500365596',`last_login_ip`='0' WHERE `uid` = 8 [ RunTime:0.0000s ]
+
+[ 2017-07-18T16:13:17+08:00 ] ::1 /bus/admin.php?s=/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `bus_ucenter_member` [ RunTime:0.0020s ]
+SQL: SELECT a.place,b.* FROM bus_ucenter_member  a  left join bus_place as b on a.place = b.id   WHERE (  a.id=8 ) LIMIT 1   [ RunTime:0.0170s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group_access` [ RunTime:0.0270s ]
+SQL: SELECT * FROM `bus_auth_group_access` WHERE (  uid= 8 ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: rules D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 90 行.
+SQL: SHOW COLUMNS FROM `bus_auth_group` [ RunTime:0.0060s ]
+SQL: SELECT `rules` FROM `bus_auth_group` WHERE (  id =1 ) LIMIT 1   [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `bus_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`title`,`url` FROM `bus_menu` WHERE (  id in (2,3,4,5,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,80,81,82,83,84,86,87,88,89,90,91,92,93,94,95,100,102,103,106,107,108,109,110,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,195,205,206,207,208,209,210,212,213,214,215,216,218,219,220) and pid = 0 and hide = 0 and is_dev = 0 ) ORDER BY sort asc  [ RunTime:0.0020s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+SQL: SELECT `pid` FROM `bus_menu` WHERE ( pid !=0 AND url like '%Index/index%' ) LIMIT 1   [ RunTime:0.0020s ]
+
+[ 2017-07-18T16:13:17+08:00 ] ::1 /bus/admin.php?s=/Article/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.002000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group_access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `bus_auth_group_access` WHERE (  uid= 8 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group` [ RunTime:0.0020s ]
+SQL: SELECT `rules` FROM `bus_auth_group` WHERE (  id =1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_menu` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`title`,`url` FROM `bus_menu` WHERE (  id in (2,3,4,5,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,80,81,82,83,84,86,87,88,89,90,91,92,93,94,95,100,102,103,106,107,108,109,110,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,195,205,206,207,208,209,210,212,213,214,215,216,218,219,220) and pid = 0 and hide = 0 and is_dev = 0 ) ORDER BY sort asc  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+SQL: SELECT `pid` FROM `bus_menu` WHERE ( pid !=0 AND url like '%Article/index%' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group_access` [ RunTime:0.0020s ]
+SQL: SELECT `extend_id` FROM bus_auth_group_access g INNER JOIN bus_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='8' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.0350s ]
+SQL: SHOW COLUMNS FROM `bus_category` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `bus_category` WHERE `status` = 1 ORDER BY pid,sort  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\ArticleController.class.php 第 75 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\ArticleController.class.php 第 138 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\ArticleController.class.php 第 142 行.
+SQL: SHOW COLUMNS FROM `bus_model` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `bus_model` WHERE `name` = 'document' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `bus_document` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM bus_document DOCUMENT WHERE `status` IN ('0','1','2') AND `pid` = 0 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `id`,`title`,`type`,`update_time`,`status`,`view`,`category_id`,`model_id`,`pid` FROM bus_document DOCUMENT WHERE `status` IN ('0','1','2') AND `pid` = 0 ORDER BY level DESC,DOCUMENT.id DESC LIMIT 0,10   [ RunTime:0.0000s ]
+SQL: SELECT `extend` FROM `bus_model` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_attribute` [ RunTime:0.0040s ]
+SQL: SELECT `id`,`name`,`type`,`extra` FROM `bus_attribute` WHERE `model_id` = 1  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: groups D:\phpStudy\WWW\bus\Application\Admin\Controller\ArticleController.class.php 第 230 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.058003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.058003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-07-18T16:13:20+08:00 ] ::1 /bus/admin.php?s=/User/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.002000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group_access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `bus_auth_group_access` WHERE (  uid= 8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group` [ RunTime:0.0020s ]
+SQL: SELECT `rules` FROM `bus_auth_group` WHERE (  id =1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `bus_menu` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title`,`url` FROM `bus_menu` WHERE (  id in (2,3,4,5,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,80,81,82,83,84,86,87,88,89,90,91,92,93,94,95,100,102,103,106,107,108,109,110,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,195,205,206,207,208,209,210,212,213,214,215,216,218,219,220) and pid = 0 and hide = 0 and is_dev = 0 ) ORDER BY sort asc  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+SQL: SELECT `pid` FROM `bus_menu` WHERE ( pid !=0 AND url like '%User/index%' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `bus_menu` WHERE `id` = 16 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT DISTINCT  `group` FROM `bus_menu` WHERE `group` <> '' AND `pid` = 16  [ RunTime:0.0120s ]
+SQL: SELECT `id`,`url` FROM `bus_menu` WHERE `pid` = 16 AND `hide` = 0  [ RunTime:0.0010s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 330 行.
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '班车管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '类别管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '用户管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '行为管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '线路管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '二维码' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '司机管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '公司管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '账单管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_member` [ RunTime:0.0020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bus_member` WHERE `status` >= 0 AND `nickname` LIKE '%%' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status`,`place` FROM `bus_member` WHERE `status` >= 0 AND `nickname` LIKE '%%' ORDER BY uid desc LIMIT 0,10   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-07-18T16:17:08+08:00 ] ::1 /bus/admin.php?s=/Finance/showList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.002000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group_access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `bus_auth_group_access` WHERE (  uid= 8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group` [ RunTime:0.0020s ]
+SQL: SELECT `rules` FROM `bus_auth_group` WHERE (  id =1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `bus_menu` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title`,`url` FROM `bus_menu` WHERE (  id in (2,3,4,5,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,80,81,82,83,84,86,87,88,89,90,91,92,93,94,95,100,102,103,106,107,108,109,110,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,195,205,206,207,208,209,210,212,213,214,215,216,218,219,220) and pid = 0 and hide = 0 and is_dev = 0 ) ORDER BY sort asc  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+SQL: SELECT `pid` FROM `bus_menu` WHERE ( pid !=0 AND url like '%Finance/showList%' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `bus_menu` WHERE `id` = 16 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT DISTINCT  `group` FROM `bus_menu` WHERE `group` <> '' AND `pid` = 16  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`url` FROM `bus_menu` WHERE `pid` = 16 AND `hide` = 0  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 330 行.
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '班车管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '类别管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '用户管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '行为管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '线路管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '二维码' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '司机管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '公司管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '账单管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_finance` [ RunTime:0.2060s ]
+SQL: SELECT * FROM `bus_finance` WHERE `place` = 1 AND `year` = '2017' ORDER BY  id asc   [ RunTime:0.0580s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-07-18T16:17:09+08:00 ] ::1 /bus/admin.php?s=/Finance/showList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group_access` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `bus_auth_group_access` WHERE (  uid= 8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `bus_auth_group` [ RunTime:0.0020s ]
+SQL: SELECT `rules` FROM `bus_auth_group` WHERE (  id =1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_menu` [ RunTime:0.0020s ]
+SQL: SELECT `id`,`title`,`url` FROM `bus_menu` WHERE (  id in (2,3,4,5,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,80,81,82,83,84,86,87,88,89,90,91,92,93,94,95,100,102,103,106,107,108,109,110,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,195,205,206,207,208,209,210,212,213,214,215,216,218,219,220) and pid = 0 and hide = 0 and is_dev = 0 ) ORDER BY sort asc  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 297 行.
+SQL: SELECT `pid` FROM `bus_menu` WHERE ( pid !=0 AND url like '%Finance/showList%' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `bus_menu` WHERE `id` = 16 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT DISTINCT  `group` FROM `bus_menu` WHERE `group` <> '' AND `pid` = 16  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`url` FROM `bus_menu` WHERE `pid` = 16 AND `hide` = 0  [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant IS_ROOT - assumed 'IS_ROOT' D:\phpStudy\WWW\bus\Application\Admin\Controller\AdminController.class.php 第 330 行.
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '班车管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '类别管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '用户管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '行为管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '线路管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '二维码' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '司机管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '公司管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `bus_menu` WHERE `group` = '账单管理' AND `pid` = 16 AND `hide` = 0 ORDER BY sort asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `bus_finance` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `bus_finance` WHERE `place` = 1 AND `year` = '2017' ORDER BY  id asc   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
